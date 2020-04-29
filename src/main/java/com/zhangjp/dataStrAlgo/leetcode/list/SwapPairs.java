@@ -30,10 +30,12 @@ public class SwapPairs {
             // Nodes to be swapped
             ListNode firstNode = head; // 1234
             ListNode secondNode = head.next; //234
+
             // Swapping
             prevNode.next = secondNode; // 0 2 3 4
             firstNode.next = secondNode.next; // 1 3 4
             secondNode.next = firstNode; // 2 1 3 4
+
             // Reinitializing the head and prevNode for next swap
             prevNode = firstNode;
             head = firstNode.next; // jump 34
@@ -49,4 +51,7 @@ public class SwapPairs {
         ListNode listNode1 = swapPairs(listNode);
         ListNodeBase.printListNode(listNode1);
     }
+
+
+
 }

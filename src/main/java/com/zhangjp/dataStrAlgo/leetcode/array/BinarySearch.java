@@ -26,7 +26,10 @@ public class BinarySearch {
     
     // 变种二分查找法
     public int search(int[] nums, int target) {
-        // TODO: 2020/4/27  
+        // TODO: 2020/4/27
         return 0;
     }
+
+
+
 }

@@ -2,6 +2,8 @@ package com.zhangjp.dataStrAlgo.leetcode.list.base;
 
 import com.zhangjp.dataStrAlgo.leetcode.ListNode;
 
+import java.util.LinkedList;
+
 
 public class ListNodeBase {
 
@@ -35,6 +37,7 @@ public class ListNodeBase {
         }
         return prev;
     }
+
 
     /*
     * 检查是否是回环
