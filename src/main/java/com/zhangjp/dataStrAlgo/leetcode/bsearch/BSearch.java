@@ -8,6 +8,12 @@ public class BSearch {
         System.out.println(ints[search]);
         System.out.println("==========");
         System.out.println("binarySearchRecursion(ints,8) = " + binarySearchRecursion(ints,8));
+
+
+        int[] numsR = {1,3,4,5,6,8,8,8,11,18};
+        System.out.println("binarySearchFirst(numsR,8) = " + binarySearchFirst(numsR, 8));
+        int i = 2 + (3 - 2) / 2;
+        System.out.println("2+(3-2)/2 = " + i);
     }
 
     /*
@@ -61,5 +67,27 @@ public class BSearch {
         }else{
             return binarySearchRecursion(nums,target,low,mid-1);
         }
+    }
+
+
+    /*
+    * 变体1 ： 有序重复数组中，查找第一个值等于给定值的元素
+    * 【1，2，3，4，5，6，8，8，8，8，9】
+    * */
+    public static int binarySearchFirst(int[] nums,int target){
+        int low = 0;
+        int high = nums.length-1;
+        while(low<=high){
+            int mid = low + (high - low)/2;
+            //
+            if ( (mid == 0 && nums[mid] == target) || (nums[mid] == target && nums[mid-1] != target)) {
+                return mid;
+            }else if (nums[mid] >= target) {
+                high = mid - 1;
+            }else {
+                low = mid + 1;
+            }
+        }
+        return -1;
     }
 }

@@ -26,41 +26,35 @@ public class ReverseBetween {
                         .setNext(new ListNode(3)
                                 .setNext(new ListNode(4)
                                         .setNext(new ListNode(5)))));
-        ListNode listNode = reverseBetween(head, 2, 4);
-        // ListNodeBase.printListNode(listNode);
+        ListNode listNode = reverseBetween(head, 3, 4);
+        ListNodeBase.printListNode(listNode);
     }
 
-    //    todo  没有解出来
+    // Java-双指针-头插法
     public static ListNode reverseBetween(ListNode head, int m, int n) {
-        ListNode dummy = new ListNode(-1);
-        ListNode lastNodeR = new ListNode(-1);
-        ListNode reverseNode = lastNodeR;
-        ListNode lastNode = dummy;
-        ListNode curr = head;
-        int i = 1;
-        while (curr != null) {
-            if (m <= i && i <= n) {
-                // 需要翻转的部分
-                ListNode next = curr.next;
-                curr.next = reverseNode;
-                reverseNode = curr;
-                curr = next;
-                i++;
-                continue;
-            } else if (i<m) {
-                // 需要翻转前的那部分
-                lastNode.next = new ListNode(curr.val);
-                lastNode = lastNode.next;
-            }else {
-                // 需要翻转后的那部分
-                lastNodeR.setVal(curr.val);
-                lastNodeR.next = curr.next;
-                break;
-            }
-            curr = curr.next;
-            i++;
+        if (head==null || head.next == null) {
+            return head;
         }
-        lastNode.next = reverseNode;
-        return dummy.next;
+
+        ListNode dummyHead = new ListNode(0);
+        dummyHead.next = head;
+
+        ListNode g = dummyHead;
+        ListNode p = dummyHead.next;
+
+        int step = 0;
+        while (step < m - 1) {
+            g = g.next; p = p.next;
+            step ++;
+        }
+
+        for (int i = 0; i < n - m; i++) {
+            ListNode removed = p.next;
+            p.next = p.next.next;
+            removed.next = g.next;
+            g.next = removed;
+        }
+
+        return dummyHead.next;
     }
 }
