@@ -1,4 +1,4 @@
-package com.zhangjp.dataStrAlgo.algo;
+package com.zhangjp.dataStrAlgo.leetcode.string;
 
 import java.util.*;
 
@@ -46,24 +46,4 @@ public class LengthOfLongestSubstring {
         return tmp.size();
     }
 
-
-    public static int lengthOfLongestSubstringV1(String s) {
-        assert s != null;
-        if (s.length()<=1) {
-            return s.length();
-        }
-        int left = 0;
-        int end = 0;
-        Map<Object, Integer> m = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
-            char currentS = s.charAt(i);
-            if (tmp.get(currentS) != null) {
-                left = tmp.get(currentS) +1;
-            }else {
-                tmp.put(currentS,i);
-            }
-            end = i+1;
-        }
-        return end-left;
-    }
 }
