@@ -1,4 +1,4 @@
-package com.zhangjp.dataStrAlgo.system;
+package com.zhangjp.dataStrAlgo.system.arrayAndLink;
 
 import java.util.HashMap;
 import java.util.Map;

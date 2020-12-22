@@ -1,4 +1,4 @@
-package com.zhangjp.dataStrAlgo.system;
+package com.zhangjp.dataStrAlgo.system.arrayAndLink;
 
 public class Learn_02_ArrayAndLink {
 
@@ -25,7 +25,7 @@ public class Learn_02_ArrayAndLink {
   }
 
     class Solution {
-
+        // 1->2->3->4->5
         public ListNode reverseKGroup(ListNode head, int k) {
             //边界情况
             if (head == null || k == 1) {
@@ -33,7 +33,7 @@ public class Learn_02_ArrayAndLink {
             }
             // 辅助指针
             ListNode fakeHead = new ListNode(0);
-            fakeHead.next = head;
+            fakeHead.next = head; //0->1->2->3->4->5
             ListNode prev = fakeHead;
             int count = 0;
             ListNode end = head;
@@ -51,8 +51,9 @@ public class Learn_02_ArrayAndLink {
         }
 
         ListNode reverseLinkedList(ListNode prev,ListNode next) {
-            ListNode last = prev.next;
-            ListNode cur = last.next;
+            //0->1->2->3 prev0 next3
+            ListNode last = prev.next; // 1->2->3
+            ListNode cur = last.next; // 2->3
             while(cur != next){
                 ListNode temp = cur.next;
                 cur.next = prev.next;
