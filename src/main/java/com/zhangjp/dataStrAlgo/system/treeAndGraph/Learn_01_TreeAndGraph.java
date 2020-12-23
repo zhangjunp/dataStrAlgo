@@ -11,6 +11,19 @@ import java.util.List;
  */
 public class Learn_01_TreeAndGraph {
 
+    /**
+     * @description:
+     *      8
+     *     / \
+     *    4   11
+     *   /\
+     *  2  6
+     *
+     *  前序遍历序列化后  8 4 2 null null 6 null null 11 null null
+     *  反序列化： 采用递归 根节点 左子树 右子树
+     * @author: zhangjp
+     * @date: 2020/12/22 14:44
+     */
     public static void main(String[] args) {
        String str = "8,4,2,null,null,6,null,null,11,null,null";
        TreeNode treeNode = deserialize(str);
@@ -49,7 +62,6 @@ public class Learn_01_TreeAndGraph {
         }
         TreeNode root = new TreeNode(Integer.parseInt(list.get(0)));
         list.remove(0);
-
         root.left = deserializeHelper(list);
         root.right = deserializeHelper(list);
         return root;

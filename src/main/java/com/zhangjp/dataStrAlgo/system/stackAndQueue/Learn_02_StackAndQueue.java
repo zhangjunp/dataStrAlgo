@@ -11,7 +11,7 @@ public class Learn_02_StackAndQueue {
      * @date: 2020/12/17 09:51
      */
     public static void main(String[] args) {
-        int[] ints = {1,1};
+        int[] ints = {2,1,5,6,2,3};
         int i = largestRectangleArea(ints);
         System.out.println("i = " + i);
 
@@ -61,6 +61,7 @@ public class Learn_02_StackAndQueue {
         int result = 0;
         for (int i = 0; i <=l ; i++) {
             int cur = i ==l?-1:heights[i];
+            //  2 1 5 6 2 3
             while(!stack.isEmpty() && cur <= heights[stack.peek()]){
                 int height = heights[stack.pop()];
                 int left = stack.isEmpty()?0:(stack.peek() + 1);
