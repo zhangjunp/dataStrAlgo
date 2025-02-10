@@ -48,7 +48,7 @@ public class Day07 {
     * 4.当遍历完后栈是空的说明是合法的字符串
     * */
     public static boolean isValid(String s) {
-        if (null==s || s.length() == 0) {
+        if (null==s || s.isEmpty()) {
             return true;
         }
         Map<Character,Character> rightK = new HashMap<>();

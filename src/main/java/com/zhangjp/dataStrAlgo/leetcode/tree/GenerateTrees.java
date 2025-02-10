@@ -1,8 +1,6 @@
 package com.zhangjp.dataStrAlgo.leetcode.tree;
 
-import com.zhangjp.dataStrAlgo.leetcode.ListNode;
 import com.zhangjp.dataStrAlgo.leetcode.bfs.TreeNode;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
 
 import java.util.LinkedList;
 import java.util.List;

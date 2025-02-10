@@ -34,7 +34,6 @@ public class LengthOfLongestSubstring {
     }
 
 
-
     // 暴力解法
     public static int lengthOfLongestSubstringBak(String s) {
         int length = s.length();
@@ -44,16 +43,16 @@ public class LengthOfLongestSubstring {
         Set<Character> set;
         int maxL = -1;
         // 分别从下标0开始，计算以此下标开始最长的不重复子串
-        for(int i= 0;i<length;i++){
+        for (int i = 0; i < length; i++) {
             int j = i;
             set = new HashSet<>();
             // 当出现相同字符，停止（考虑遍历到最后一位的情况）
-            while (j<length && !set.contains(s.charAt(j))) {
+            while (j < length && !set.contains(s.charAt(j))) {
                 set.add(s.charAt(j));
                 j++;
             }
             // 比较上一次和该次遍历中最大值
-            maxL = Math.max(maxL,set.size());
+            maxL = Math.max(maxL, set.size());
         }
         return maxL;
     }
@@ -67,20 +66,20 @@ public class LengthOfLongestSubstring {
         if (length < 2) {
             return length;
         }
-        Map<Character,Integer> map = new HashMap<>();// 字符：下标
+        Map<Character, Integer> map = new HashMap<>();// 字符：下标
         int start = 0;
         int maxL = -1;
-        for(int i= 0;i<length;i++){
+        for (int i = 0; i < length; i++) {
             Character currC = s.charAt(i);
             Integer cIndex = map.get(currC);
             // 更改start值得时机需要注意一下
             // 1.map中含有重复元素了 并且  再次开始的下标一定比上次大或等于
             // 2. 比如 abbac 第二次出现a时这种情况
-            if (cIndex != null && cIndex>= start) {
+            if (cIndex != null && cIndex >= start) {
                 start = cIndex + 1;
             }
-            map.put(currC,i);
-            maxL = Math.max(maxL,(i - start+1));
+            map.put(currC, i);
+            maxL = Math.max(maxL, (i - start + 1));
         }
         return maxL;
     }

@@ -30,10 +30,10 @@ public class LengthOfLongestSubstring {
         Set<Object> tmp = new HashSet<>();
         Set<Object> currentTmp = new HashSet<>();
         for (int i = 0; i < chars.length; i++) {
-            if (!tmp.contains(chars[i]) && currentTmp.size()==0) {
+            if (!tmp.contains(chars[i]) && currentTmp.isEmpty()) {
                 tmp.add(chars[i]);
             }else {
-                if (currentTmp.size() == 0 && chars[i-1] != chars[i]) {
+                if (currentTmp.isEmpty() && chars[i-1] != chars[i]) {
                     currentTmp.add(chars[i-1]);
                 }
                 currentTmp.add(chars[i]);

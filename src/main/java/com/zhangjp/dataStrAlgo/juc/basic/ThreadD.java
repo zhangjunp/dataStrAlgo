@@ -3,15 +3,15 @@ package com.zhangjp.dataStrAlgo.juc.basic;
 public class ThreadD {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         RunnableTest1 runnable = new RunnableTest1();
         Thread t1  = new Thread(runnable);
         ThreadTest1 t2 = new ThreadTest1();
         t1.start();
         t2.start();
         t1.interrupt();
-        //Thread.sleep(1000);
-        // runnable.stop();
+        Thread.sleep(1000);
+        runnable.stop();
     }
 
 
