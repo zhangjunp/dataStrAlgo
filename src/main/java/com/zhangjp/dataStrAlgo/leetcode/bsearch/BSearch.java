@@ -18,7 +18,7 @@ public class BSearch {
 
     /*
     * 普通的二分查找
-    * 1. 循环退出条件 注意是 low<=high，而不是 low<high。
+    * 1.循环退出条件 注意是 low<=high，而不是 low<high。
     * 2.mid 的取值 实际上，mid=(low+high)/2 这种写法是有问题的。
     * 因为如果 low 和 high 比较大的话，两者之 和就有可能会溢出。
     * 改进的方法是将 mid 的计算方式写成 low+(high-low)/2。更进一步，如果 要将性能优化到极致的话，我们可以将这里的除以 2 操作转化成位运算 low+((high-low)>>1)。

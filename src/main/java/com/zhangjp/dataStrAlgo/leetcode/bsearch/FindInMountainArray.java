@@ -58,10 +58,12 @@ MountainArray.length() - 会返回该数组的长度
 public class FindInMountainArray {
     static class MountainArray {
 
-        int [] mountainArr = {3,5,3,2,0};//{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2};
+        int[] mountainArr = {3, 5, 3, 2, 0};//{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2};
+
         public int get(int index) {
             return mountainArr[index];
         }
+
         public int length() {
             return mountainArr.length;
         }
@@ -80,7 +82,7 @@ public class FindInMountainArray {
         // 3.如果没有在右半边中查找到，查找左半边
         int length = mountainArr.length(); // 数组长度
         // 由于有mountainArr.get(i)的限制，所以获取山顶的方法不能够使用暴力遍历方式解决，采用二分查找方式进行遍历
-        int maxIndex = binarySearchM(0,length-1,mountainArr);
+        int maxIndex = binarySearchM(0, length - 1, mountainArr);
         // for(int i=0; i<length -1;i++){
         //     int curr = mountainArr.get(i);
         //     int next = mountainArr.get(i+1);
@@ -89,58 +91,58 @@ public class FindInMountainArray {
         //         break;
         //     }
         // }
-        int result = binarySearch(target,0,maxIndex,mountainArr);
+        int result = binarySearch(target, 0, maxIndex, mountainArr);
         if (result == -1) {
             // 如果升序数组中未找到在降序数组中进行查找
-            result =  binarySearchL(target,maxIndex+1,length-1,mountainArr);
+            result = binarySearchL(target, maxIndex + 1, length - 1, mountainArr);
         }
         return result;
     }
 
     // 二分查找，查询山顶下标
-    public static int binarySearchM (int low,int high,MountainArray nums) {
+    public static int binarySearchM(int low, int high, MountainArray nums) {
         while (low <= high) {
-            int mid = low + (high - low)/2;
+            int mid = low + (high - low) / 2;
             int curr = nums.get(mid);
             int preIndex = Math.max(mid - 1, 0);
             int prev = nums.get(preIndex);
-            int next = nums.get(mid+1);
+            int next = nums.get(mid + 1);
             if (curr > prev && curr > next) {
                 return mid;
-            }else if (curr > next) {
-                high = mid-1;
-            }else {
-                low = mid+1;
+            } else if (curr > next) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
             }
         }
         return -1;
     }
 
     // 二分查找法 从小到大有序数组中
-    public static int binarySearch(int target,int low,int high,MountainArray nums){
-        while(low <= high){
-            int mid = low + (high-low)/2;
+    public static int binarySearch(int target, int low, int high, MountainArray nums) {
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
             if (nums.get(mid) == target) {
                 return mid;
-            }else if (nums.get(mid) > target) {
-                high = mid -1;
-            }else {
-                low = mid +1;
+            } else if (nums.get(mid) > target) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
             }
         }
         return -1;
     }
 
     // 二分查找法 从大到小有序数组中
-    public static int binarySearchL(int target,int low,int high,MountainArray nums){
-        while(low <= high){
-            int mid = low + (high-low)/2;
+    public static int binarySearchL(int target, int low, int high, MountainArray nums) {
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
             if (nums.get(mid) == target) {
                 return mid;
-            }else if (nums.get(mid) < target) {
-                high = mid -1;
-            }else {
-                low = mid +1;
+            } else if (nums.get(mid) < target) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
             }
         }
         return -1;
